@@ -1,11 +1,23 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>All Meetups!</title>
+    <link rel="stylesheet" href="{% static 'meetups/styles/base.css' %}">
 </head>
 <body>
     <h1>All Meetups!</h1>
     <p>Hello World!</p>
+    {% for meetup in meetups %}
+        {% if show_meetups %}
+            <h2>{{ meetup.title }}</h2>
+        {% else %}
+            <h2>You have no access to the meetups</h2>
+        {% endif %}
+    {% endfor %}
 </body>
 </html>
+
+
