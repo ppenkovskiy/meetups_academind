@@ -1,11 +1,10 @@
 from django.urls import path
-
 import meetups.views
-from .views import index, meetup_details
+from . import views
 
 
 urlpatterns = [
-    path('', index, name='starting-page'),
-    path('meetups/', index, name='starting-page'),
-    path('meetups/meetup_details/', meetup_details, name='meetup-detail-page'),
+    path('', views.index, name='starting-page'),
+    path('meetups/', views.index, name='starting-page'),
+    path('meetups/<slug:slug>', views.meetup_details, name='meetup-detail-page'),
 ]
