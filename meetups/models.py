@@ -14,5 +14,5 @@ class Meetup(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f"{self.title} ({self.location}, {self.description})"
+        return f"{self.title} ({self.location})"
 
