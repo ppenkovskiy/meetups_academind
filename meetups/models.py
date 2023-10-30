@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from django.utils import timezone
 
 
 class Location(models.Model):
@@ -19,6 +20,8 @@ class Participant(models.Model):
 
 class Meetup(models.Model):
     title = models.CharField(max_length=100)
+    organizer_email = models.EmailField(default='test@test.com')
+    date = models.DateField(default=timezone.now)
     slug = models.SlugField(unique=True, default="")
     description = models.TextField()
     image = models.ImageField(upload_to='images', default='')
