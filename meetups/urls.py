@@ -5,8 +5,7 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='starting-page'),
-    path('meetups/', views.index, name='starting-page'),
-    path('meetups/<slug:slug>/success/', views.confirm_registration, name='confirm-registration-page'),
-    path('meetups/<slug:slug>', views.meetup_details, name='meetup-detail-page'),
-
+    path('', views.index, name='starting-page'),
+    path('<slug:slug>/success/', views.confirm_registration, name='confirm-registration-page'),
+    path('<slug:slug>', views.meetup_details, name='meetup-detail-page'),
 ]
