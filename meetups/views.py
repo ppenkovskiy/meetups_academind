@@ -20,8 +20,8 @@ def meetup_details(request, slug):
         else:
             registration_form = RegistrationForm(request.POST)
             if registration_form.is_valid():
-                participant = registration_form.save()
-
+                user_email = registration_form.cleaned_data['email']
+                participant, _ = Participant.objects.get_or_create(email=user_email)
                 selected_meetup.participants.add(participant)
                 return redirect('confirm-registration-page')
         return render(request, 'meetups/meetup_details.html', {
